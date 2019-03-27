@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+     <% include partials/head %>
+</head>
+
+<body>
+     <% include partials/topnav %>
+
+     <div class="container-fluid">
+          <div class="row">
+               <% include partials/sidenav %>
+
+               <div class="col-md-10">
+                    <div class="row">
+                         <div class="col">
+                              <div class="my-3 p-3 bg-white rounded shadow-sm">
+                                   <h6 class="border-bottom border-gray pb-2 mb-0">Artists</h6>
+                                   <table class="table table-border table-striped">
+                                        <thead>
+                                             <tr>
+                                                  <th>Artist ID</th>
+                                                  <th>Last Name</th>
+                                                  <th>First Name</th>
+                                                  <th>Phone Number</th>
+                                                  <th>Address</th>
+                                                  <th>Birth Place</th>
+                                                  <th>Age</th>
+                                                  <th>Art Style ID</th>
+                                             </tr>
+                                        </thead>
+                                        <tbody>
+                                             <% artists.forEach(function(artist) { %>
+                                             <tr>
+                                                  <td>
+                                                       <%= artist.ArtistID %>
+                                                  </td>
+                                                  <td>
+                                                       <%= artist.LastName %>
+                                                  </td>
+                                                  <td>
+                                                       <%= artist.FirstName %>
+                                                  </td>
+                                                  <td>
+                                                       <%= artist.PhoneNumber %>
+                                                  </td>
+                                                  <td>
+                                                       <%= artist.Address %>
+                                                  </td>
+                                                  <td>
+                                                       <%= artist.BirthPlace %>
+                                                  </td>
+                                                  <td>
+                                                       <%= artist.Age %>
+                                                  </td>
+                                                  <td>
+                                                       <%= artist.ArtStyleID %>
+                                                  </td>
+                                             </tr>
+                                             <% }); %>
+                                        </tbody>
+                                   </table>
+                              </div>
+                         </div>
+                    </div>
+                    <div class="row">
+                         <div class="col">
+                              <div class="my-3 p-3 bg-white rounded shadow-sm">
+                                   <h6 class="border-bottom border-gray pb-2 mb-0">Artwork</h6>
+                                   <table class="table table-border table-striped">
+                                        <thead>
+                                             <tr>
+                                                  <th>Artwork ID</th>
+                                                  <th>Artist ID</th>
+                                                  <th>Title</th>
+                                                  <th>Art Style ID</th>
+                                                  <th>Art Type ID</th>
+                                                  <th>Created On</th>
+                                                  <th>Purchased On</th>
+                                                  <th>Price</th>
+                                                  <th>LocationID</th>
+                                             </tr>
+                                        </thead>
+                                        <tbody>
+                                             <% artworks.forEach(function(artwork) { %>
+                                             <tr>
+                                                  <td>
+                                                       <%= artwork.ArtworkID %>
+                                                  </td>
+                                                  <td>
+                                                       <%= artwork.ArtistID %>
+                                                  </td>
+                                                  <td>
+                                                       <%= artwork.Title %>
+                                                  </td>
+                                                  <td>
+                                                       <%= artwork.ArtStyleID %>
+                                                  </td>
+                                                  <td>
+                                                       <%= artwork.ArtTypeID %>
+                                                  </td>
+                                                  <td>
+                                                       <%= artwork.CreatedOn %>
+                                                  </td>
+                                                  <td>
+                                                       <%= artwork.PurchasedOn %>
+                                                  </td>
+                                                  <td>
+                                                       <%= artwork.Price %>
+                                                  </td>
+                                                  <td>
+                                                       <%= artwork.LocationID %>
+                                                  </td>
+                                             </tr>
+                                             <% }); %>
+                                        </tbody>
+                                   </table>
+                              </div>
+                         </div>
+                    </div>
+                    <div class="row">
+                         <div class="col">
+                              <div class="my-3 p-3 bg-white rounded shadow-sm">
+                                   <h6 class="border-bottom border-gray pb-2 mb-0">Art Shows</h6>
+                                   <table class="table table-border table-striped">
+                                        <thead>
+                                             <tr>
+                                                  <th>Art Show ID</th>
+                                                  <th>Artist ID</th>
+                                                  <th>Show Date</th>
+                                                  <th>Location ID</th>
+                                                  <th>Contact Name</th>
+                                                  <th>Contact Number</th>
+                                             </tr>
+                                        </thead>
+                                        <tbody>
+                                             <% artShows.forEach(function(artShow) { %>
+                                             <tr>
+                                                  <td>
+                                                       <%= artShow.ArtShowID %>
+                                                  </td>
+                                                  <td>
+                                                       <%= artShow.ArtistID %>
+                                                  </td>
+                                                  <td>
+                                                       <%= artShow.ShowDate %>
+                                                  </td>
+                                                  <td>
+                                                       <%= artShow.LocationID %>
+                                                  </td>
+                                                  <td>
+                                                       <%= artShow.ContactName %>
+                                                  </td>
+                                                  <td>
+                                                       <%= artShow.ContactPhoneNumber %>
+                                                  </td>
+                                             </tr>
+                                             <% }); %>
+                                        </tbody>
+                                   </table>
+
+                              </div>
+                         </div>
+                         <div class="col">
+                              <div class="my-3 p-3 bg-white rounded shadow-sm">
+                                   <h6 class="border-bottom border-gray pb-2 mb-0">Customers</h6>
+                                   <table class="table table-border table-striped">
+                                        <thead>
+                                             <tr>
+                                                  <th>Customer ID</th>
+                                                  <th>Phone Number</th>
+                                                  <th>Preferred Art Style ID</th>
+                                             </tr>
+                                        </thead>
+                                        <tbody>
+                                             <% customers.forEach(function(customer) { %>
+                                             <tr>
+                                                  <td>
+                                                       <%= customer.CustomerID %>
+                                                  </td>
+                                                  <td>
+                                                       <%= customer.PhoneNumber %>
+                                                  </td>
+                                                  <td>
+                                                       <%= customer.PreferredArtStyleID %>
+                                                  </td>
+                                             </tr>
+                                             <% }); %>
+                                        </tbody>
+                                   </table>
+                              </div>
+                         </div>
+                    </div>
+                    <div class="row">
+                         <div class="col">
+                              <div class="my-3 p-3 bg-white rounded shadow-sm">
+                                   <h6 class="border-bottom border-gray pb-2 mb-0">Art Types</h6>
+                                   <table class="table table-border table-striped">
+                                        <thead>
+                                             <tr>
+                                                  <th>Art Type ID</th>
+                                                  <th>Name</th>
+                                             </tr>
+                                        </thead>
+                                        <tbody>
+                                             <% artTypes.forEach(function(artType) { %>
+                                             <tr>
+                                                  <td>
+                                                       <%= artType.ArtTypeID %>
+                                                  </td>
+                                                  <td>
+                                                       <%= artType.Name %>
+                                                  </td>
+                                             </tr>
+                                             <% }); %>
+                                        </tbody>
+                                   </table>
+                              </div>
+                         </div>
+                         <div class="col">
+                              <div class="my-3 p-3 bg-white rounded shadow-sm">
+                                   <h6 class="border-bottom border-gray pb-2 mb-0">Art Styles</h6>
+                                   <table class="table table-border table-striped">
+                                        <thead>
+                                             <tr>
+                                                  <th>Art Style ID</th>
+                                                  <th>Name</th>
+                                             </tr>
+                                        </thead>
+                                        <tbody>
+                                             <% artTypes.forEach(function(artType) { %>
+                                             <tr>
+                                                  <td>
+                                                       <%= artType.ArtTypeID %>
+                                                  </td>
+                                                  <td>
+                                                       <%= artType.Name %>
+                                                  </td>
+                                             </tr>
+                                             <% }); %>
+                                        </tbody>
+                                   </table>
+                              </div>
+                         </div>
+                    </div>
+                    <div class="row">
+                         <div class="col">
+                              <div class="my-3 p-3 bg-white rounded shadow-sm">
+                                   <h6 class="border-bottom border-gray pb-2 mb-0">Locations</h6>
+                                   <table class="table table-border table-striped">
+                                        <thead>
+                                             <tr>
+                                                  <th>Location ID</th>
+                                                  <th>Name</th>
+                                             </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                   </table>
+                              </div>
+                         </div>
+                         <div class="col">
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </div>
+</body>
+
+<% include partials/scripts %>
+
+</html>
