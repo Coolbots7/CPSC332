@@ -78,3 +78,7 @@ CREATE TABLE t_ArtShow (
 	FOREIGN KEY (ArtistID) REFERENCES t_Artist(ArtistID),
 	FOREIGN KEY (LocationID) REFERENCES t_Location(LocationID)
 );
+
+CREATE USER IF NOT EXISTS 'cpsc332webapp'@'localhost' IDENTIFIED WITH mysql_native_password BY 'w3bapppa$$w0rd';
+GRANT SELECT, EXECUTE ON cpsc332_project4.* TO 'cpsc332webapp'@'localhost';
+FLUSH PRIVILEGES;
