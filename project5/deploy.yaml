@@ -1,0 +1,71 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: cpsc332-svc
+spec:
+  selector:
+    app: cpsc332
+    tier: frontend
+  ports:
+  - protocol: "TCP"
+    port: 80
+    targetPort: 3000
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cpsc332
+spec:
+  selector:
+    matchLabels:
+      app: cpsc332
+      tier: frontend
+      track: stable
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: cpsc332
+        tier: frontend
+        track: stable
+    spec:
+      containers:
+      - name: cpsc332
+        image: "registry.gitlab.com/coolbots7/cpsc332/project5:v0.1"
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+          protocol: TCP
+      imagePullSecrets:
+      - name: gitlab-auth
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cpsc332-db-svc
+spec:
+  selector:
+    app: cpsc332-db
+  ports:
+  - protocol: "TCP"
+    port: 3306
+    targetPort: 3306
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+     name: cpsc332-db
+spec:
+     selector:
+          matchLabels:
+               app: cpsc332-db
+          spec:
+               containers:
+               - name: cpsc332-db
+                 image: "registry.gitlab.com/coolbots7/cpsc332/project4:v0.1"
+                 imagePullPolicy: Always
+                 ports:
+                 - containerPort: 3306
+                      protocol: TCP
+               imagePullSecrets:
+               - name: gitlab-auth
