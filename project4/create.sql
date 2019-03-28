@@ -28,13 +28,15 @@ CREATE TABLE t_Artist (
 	FirstName VARCHAR(100) NOT NULL,
 	LastName VARCHAR(100) NOT NULL,
 	PhoneNumber VARCHAR(10) NOT NULL,
-	Address VARCHAR(100) NOT NULL,
-	BirthPlace VARCHAR(100) NOT NULL,
+	Address INT NOT NULL,
+	BirthPlace INT NOT NULL,
 	Age INT NOT NULL,
 	ArtStyleID INT NOT NULL,
 	PRIMARY KEY (ArtistID),
 	UNIQUE(FirstName, LastName),
-	FOREIGN KEY (ArtStyleID) REFERENCES t_ArtStyle(ArtStyleID)
+	FOREIGN KEY (ArtStyleID) REFERENCES t_ArtStyle(ArtStyleID),
+	FOREIGN KEY (BirthPlace) REFERENCES t_Locaiton(LocationID),
+	FOREIGN KEY (Address) REFERENCES t_Locaiton(LocationID)
 );
 
 CREATE TABLE t_Artwork (

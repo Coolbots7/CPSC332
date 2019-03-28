@@ -22,15 +22,22 @@ VALUES
      ('Hollywood, Los Angeles'),
      ('New York, New York'),
      ('Paris, France'),
-     ('Austin, Texas');
+     ('Austin, Texas'),
+     ('Mougins, Spain'),
+     ('Auvers-sur-Oise, France'),
+     ('Zundert, Netherlands'),
+     ('Chateau du Clos Luce, Amboise, France'),
+     ('Anchiano, Italy'),
+     ('Springs, NY'),
+     ('Cody, WY');
 
 INSERT INTO t_Artist
      (FirstName, LastName, PhoneNumber, Address, BirthPlace, Age, ArtStyleID)
 VALUES
-     ('Pablo', 'Picasso', '8885551234', 'Mougins, Spain', 'Malaga, Spain', 91, 1),
-     ('Vincent', 'van Gogh', '8082345555', 'Auvers-sur-Oise, France', 'Zundert, Netherlands', 37, 3),
-     ('Leonardo', 'da Vinci', '9095559876', 'Chateau du Clos Luce, Amboise, France', 'Anchiano, Italy', 67, 2),
-     ('Jackson', 'Pollock', '5558884567', 'Springs, NY', 'Cody, WY', 44, 4);
+     ('Pablo', 'Picasso', '8885551234', 5, 5, 91, 1),
+     ('Vincent', 'van Gogh', '8082345555', 6, 7, 37, 3),
+     ('Leonardo', 'da Vinci', '9095559876', 8, 9, 67, 2),
+     ('Jackson', 'Pollock', '5558884567', 10, 11, 44, 4);
 
 INSERT INTO t_Artwork
      (ArtistID, Title, ArtStyleID, ArtTypeID, CreatedOn, PurchasedOn, Price, LocationID)
