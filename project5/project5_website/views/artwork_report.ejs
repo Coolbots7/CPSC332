@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+     <% include partials/head %>
+</head>
+
+<body>
+     <% include partials/topnav %>
+
+     <div class="container-fluid">
+          <div class="row">
+               <div class="col">
+                    <div class="row">
+                         <div class="col">
+                              <div class="my-3 p-3 bg-white rounded shadow-sm">
+                                   <h6 class="border-bottom border-gray pb-2 mb-0">Artworks</h6>
+                                   <table class="table table-border table-striped">
+                                        <thead>
+                                             <tr>
+                                                  <th>
+                                                       <% if(sort == "id" && dir == "asc") { %>
+                                                       <a href="/report/artwork?sort=id&dir=desc">
+                                                            <%} else { %>
+                                                            <a href="/report/artwork?sort=id&dir=asc">
+                                                                 <% } %>
+                                                                 Artwork ID
+                                                                 <% if(sort == "id" && dir == "desc") { %>
+                                                                 <i class="fas fa-sort-numeric-up"></i>
+                                                                 <%} else if(sort == "id") {%>
+                                                                 <i class="fas fa-sort-numeric-down"></i>
+                                                                 <%} else { %>
+                                                                 <i class="fas fa-sort"></i>
+                                                                 <% } %>
+                                                            </a></th>
+                                                  <th>
+                                                       <% if(sort == "lname" && dir == "asc") { %>
+                                                       <a href="/report/artwork?sort=lname&dir=desc">
+                                                            <% } else { %>
+                                                            <a href="/report/artwork?sort=lname&dir=asc">
+                                                                 <% } %>
+                                                                 Last Name
+                                                                 <% if(sort == "lname" && dir == "desc") { %>
+                                                                 <i class="fas fa-sort-alpha-up"></i>
+                                                                 <%} else if(sort == "lname") {%>
+                                                                 <i class="fas fa-sort-alpha-down"></i>
+                                                                 <%} else { %>
+                                                                 <i class="fas fa-sort"></i>
+                                                                 <% } %></a></th>
+                                                  <th>First Name</th>
+                                                  <th>Title</th>
+                                                  <th>Art Style</th>
+                                                  <th>Art Type</th>
+                                                  <th>
+                                                       <% if(sort == "created" && dir == "asc") { %>
+                                                       <a href="/report/artwork?sort=created&dir=desc">
+                                                            <% } else { %>
+                                                            <a href="/report/artwork?sort=created&dir=asc">
+                                                                 <% } %>
+                                                                 Created On
+                                                                 <% if(sort == "created" && dir == "desc") { %>
+                                                                 <i class="fas fa-sort-alpha-up"></i>
+                                                                 <%} else if(sort == "created") {%>
+                                                                 <i class="fas fa-sort-alpha-down"></i>
+                                                                 <%} else { %>
+                                                                 <i class="fas fa-sort"></i>
+                                                                 <% } %></a></th>
+                                                  <th>
+                                                       <% if(sort == "purchased" && dir == "asc") { %>
+                                                       <a href="/report/artwork?sort=purchased&dir=desc">
+                                                            <% } else { %>
+                                                            <a href="/report/artwork?sort=purchased&dir=asc">
+                                                                 <% } %>
+                                                                 Purchased On
+                                                                 <% if(sort == "purchased" && dir == "desc") { %>
+                                                                 <i class="fas fa-sort-alpha-up"></i>
+                                                                 <%} else if(sort == "purchased") {%>
+                                                                 <i class="fas fa-sort-alpha-down"></i>
+                                                                 <%} else { %>
+                                                                 <i class="fas fa-sort"></i>
+                                                                 <% } %></a></th>
+                                                  <th>
+                                                       <% if(sort == "price" && dir == "asc") { %>
+                                                       <a href="/report/artwork?sort=price&dir=desc">
+                                                            <%} else { %>
+                                                            <a href="/report/artwork?sort=price&dir=asc">
+                                                                 <% } %>
+                                                                 Price
+                                                                 <% if(sort == "price" && dir == "desc") { %>
+                                                                 <i class="fas fa-sort-numeric-up"></i>
+                                                                 <%} else if(sort == "price") {%>
+                                                                 <i class="fas fa-sort-numeric-down"></i>
+                                                                 <%} else { %>
+                                                                 <i class="fas fa-sort"></i>
+                                                                 <% } %></th>
+                                                  <th>Location</th>
+                                             </tr>
+                                        </thead>
+                                        <tbody>
+                                             <% artworks.forEach(function(artwork) { %>
+                                             <tr>
+                                                  <td>
+                                                       <%= artwork.ArtworkID %>
+                                                  </td>
+                                                  <td>
+                                                       <%= artwork.LastName %>
+                                                  </td>
+                                                  <td>
+                                                       <%= artwork.FirstName %>
+                                                  </td>
+                                                  <td>
+                                                       <%= artwork.Title %>
+                                                  </td>
+                                                  <td>
+                                                       <%= artwork.ArtStyle %>
+                                                  </td>
+                                                  <td>
+                                                       <%= artwork.ArtType %>
+                                                  </td>
+                                                  <td>
+                                                       <%= artwork.CreatedOn.toLocaleDateString(); %>
+                                                  </td>
+                                                  <td>
+                                                       <%= artwork.PurchasedOn.toLocaleDateString(); %>
+                                                  </td>
+                                                  <td class="money">
+                                                       <%= artwork.Price %>
+                                                  </td>
+                                                  <td>
+                                                       <%= artwork.Location %>
+                                                  </td>
+                                             </tr>
+                                             <% }); %>
+                                        </tbody>
+                                   </table>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </div>
+</body>
+
+<% include partials/scripts %>
+
+</html>

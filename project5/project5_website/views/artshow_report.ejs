@@ -14,17 +14,17 @@
                     <div class="row">
                          <div class="col">
                               <div class="my-3 p-3 bg-white rounded shadow-sm">
-                                   <h6 class="border-bottom border-gray pb-2 mb-0">Artists</h6>
+                                   <h6 class="border-bottom border-gray pb-2 mb-0">Art Shows</h6>
                                    <table class="table table-border table-striped">
                                         <thead>
                                              <tr>
                                                   <th>
                                                        <% if(sort == "id" && dir == "asc") { %>
-                                                       <a href="/report/artist?sort=id&dir=desc">
+                                                       <a href="/report/artshow?sort=id&dir=desc">
                                                             <%} else { %>
-                                                            <a href="/report/artist?sort=id&dir=asc">
+                                                            <a href="/report/artshow?sort=id&dir=asc">
                                                                  <% } %>
-                                                                 Artist ID
+                                                                 Art Show ID
                                                                  <% if(sort == "id" && dir == "desc") { %>
                                                                  <i class="fas fa-sort-numeric-up"></i>
                                                                  <%} else if(sort == "id") {%>
@@ -35,9 +35,9 @@
                                                             </a></th>
                                                   <th>
                                                        <% if(sort == "lname" && dir == "asc") { %>
-                                                       <a href="/report/artist?sort=lname&dir=desc">
+                                                       <a href="/report/artshow?sort=lname&dir=desc">
                                                             <% } else { %>
-                                                            <a href="/report/artist?sort=lname&dir=asc">
+                                                            <a href="/report/artshow?sort=lname&dir=asc">
                                                                  <% } %>
                                                                  Last Name
                                                                  <% if(sort == "lname" && dir == "desc") { %>
@@ -48,51 +48,48 @@
                                                                  <i class="fas fa-sort"></i>
                                                                  <% } %></a></th>
                                                   <th>First Name</th>
-                                                  <th>Phone Number</th>
-                                                  <th>Address</th>
-                                                  <th>Birth Place</th>
-                                                  <th><% if(sort == "age" && dir == "asc") { %>
-                                                  <a href="/report/artist?sort=age&dir=desc">
-                                                       <%} else { %>
-                                                       <a href="/report/artist?sort=age&dir=asc">
-                                                            <% } %>
-                                                            Age
-                                                            <% if(sort == "age" && dir == "desc") { %>
-                                                            <i class="fas fa-sort-numeric-up"></i>
-                                                            <%} else if(sort == "age") {%>
-                                                            <i class="fas fa-sort-numeric-down"></i>
-                                                            <%} else { %>
-                                                            <i class="fas fa-sort"></i>
-                                                            <% } %>
-                                                  <th>Art Style</th>
+                                                  <th>
+                                                       <% if(sort == "date" && dir == "asc") { %>
+                                                       <a href="/report/artshow?sort=date&dir=desc">
+                                                            <% } else { %>
+                                                            <a href="/report/artshow?sort=date&dir=asc">
+                                                                 <% } %>
+                                                                 Show Date
+                                                                 <% if(sort == "date" && dir == "desc") { %>
+                                                                 <i class="fas fa-sort-alpha-up"></i>
+                                                                 <%} else if(sort == "date") {%>
+                                                                 <i class="fas fa-sort-alpha-down"></i>
+                                                                 <%} else { %>
+                                                                 <i class="fas fa-sort"></i>
+                                                                 <% } %></a></th>
+                                                  <th>Contact Name</th>
+                                                  <th>Contact Phone Number</th>
+                                                  <th>Location</th>
                                              </tr>
                                         </thead>
                                         <tbody>
-                                             <% artists.forEach(function(artist) { %>
+                                             <% artshows.forEach(function(artshow) { %>
                                              <tr>
                                                   <td>
-                                                       <%= artist.ArtistID %>
+                                                       <%= artshow.ArtShowID %>
                                                   </td>
                                                   <td>
-                                                       <%= artist.LastName %>
+                                                       <%= artshow.LastName %>
                                                   </td>
                                                   <td>
-                                                       <%= artist.FirstName %>
+                                                       <%= artshow.FirstName %>
+                                                  </td>
+                                                  <td>
+                                                       <%= artshow.ShowDate.toLocaleDateString(); %>
+                                                  </td>
+                                                  <td>
+                                                       <%= artshow.ContactName %>
                                                   </td>
                                                   <td class="phone-number">
-                                                       <%= artist.PhoneNumber %>
+                                                       <%= artshow.ContactPhoneNumber %>
                                                   </td>
                                                   <td>
-                                                       <%= artist.Address %>
-                                                  </td>
-                                                  <td>
-                                                       <%= artist.BirthPlace %>
-                                                  </td>
-                                                  <td>
-                                                       <%= artist.Age %>
-                                                  </td>
-                                                  <td>
-                                                       <%= artist.ArtStyle %>
+                                                       <%= artshow.Location %>
                                                   </td>
                                              </tr>
                                              <% }); %>

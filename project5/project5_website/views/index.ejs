@@ -5,14 +5,12 @@
      <% include partials/head %>
 </head>
 
-<body>
+<body class="bg-light">
      <% include partials/topnav %>
 
-     <div class="container-fluid">
+     <main role="main" class="container-fluid">
           <div class="row">
-               <% include partials/sidenav %>
-
-               <div class="col-md-10">
+               <div class="col">
                     <div class="row">
                          <div class="col">
                               <div class="my-3 p-3 bg-white rounded shadow-sm">
@@ -42,7 +40,7 @@
                                                   <td>
                                                        <%= artist.FirstName %>
                                                   </td>
-                                                  <td>
+                                                  <td class="phone-number">
                                                        <%= artist.PhoneNumber %>
                                                   </td>
                                                   <td>
@@ -101,12 +99,12 @@
                                                        <%= artwork.ArtTypeID %>
                                                   </td>
                                                   <td>
-                                                       <%= artwork.CreatedOn %>
+                                                       <%= artwork.CreatedOn.toLocaleDateString(); %>
                                                   </td>
                                                   <td>
-                                                       <%= artwork.PurchasedOn %>
+                                                       <%= artwork.PurchasedOn.toLocaleDateString(); %>
                                                   </td>
-                                                  <td>
+                                                  <td class="money">
                                                        <%= artwork.Price %>
                                                   </td>
                                                   <td>
@@ -144,7 +142,7 @@
                                                        <%= artShow.ArtistID %>
                                                   </td>
                                                   <td>
-                                                       <%= artShow.ShowDate %>
+                                                       <%= artShow.ShowDate.toLocaleDateString(); %>
                                                   </td>
                                                   <td>
                                                        <%= artShow.LocationID %>
@@ -152,7 +150,7 @@
                                                   <td>
                                                        <%= artShow.ContactName %>
                                                   </td>
-                                                  <td>
+                                                  <td class="phone-number">
                                                        <%= artShow.ContactPhoneNumber %>
                                                   </td>
                                              </tr>
@@ -179,7 +177,7 @@
                                                   <td>
                                                        <%= customer.CustomerID %>
                                                   </td>
-                                                  <td>
+                                                  <td class="phone-number">
                                                        <%= customer.PhoneNumber %>
                                                   </td>
                                                   <td>
@@ -229,13 +227,13 @@
                                              </tr>
                                         </thead>
                                         <tbody>
-                                             <% artTypes.forEach(function(artType) { %>
+                                             <% artStyles.forEach(function(artStyle) { %>
                                              <tr>
                                                   <td>
-                                                       <%= artType.ArtTypeID %>
+                                                       <%= artStyle.ArtStyleID %>
                                                   </td>
                                                   <td>
-                                                       <%= artType.Name %>
+                                                       <%= artStyle.Name %>
                                                   </td>
                                              </tr>
                                              <% }); %>
@@ -256,6 +254,12 @@
                                              </tr>
                                         </thead>
                                         <tbody>
+                                             <% locations.forEach(function(location) { %>
+                                             <tr>
+                                                  <td><%= location.LocationID %></td>
+                                                  <td><%= location.Name %></td>
+                                             </tr>
+                                             <% }); %>
                                         </tbody>
                                    </table>
                               </div>
@@ -265,7 +269,7 @@
                     </div>
                </div>
           </div>
-     </div>
+     </main>
 </body>
 
 <% include partials/scripts %>

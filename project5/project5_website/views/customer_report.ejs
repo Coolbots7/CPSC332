@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+     <% include partials/head %>
+</head>
+
+<body>
+     <% include partials/topnav %>
+
+     <div class="container-fluid">
+          <div class="row">
+               <div class="col">
+                    <div class="row">
+                         <div class="col">
+                              <div class="my-3 p-3 bg-white rounded shadow-sm">
+                                   <h6 class="border-bottom border-gray pb-2 mb-0">Customers</h6>
+                                   <table class="table table-border table-striped">
+                                        <thead>
+                                             <tr>
+                                                  <th>
+                                                       <% if(sort == "id" && dir == "asc") { %>
+                                                       <a href="/report/customer?sort=id&dir=desc">
+                                                            <%} else { %>
+                                                            <a href="/report/customer?sort=id&dir=asc">
+                                                                 <% } %>
+                                                                 Customer ID
+                                                                 <% if(sort == "id" && dir == "desc") { %>
+                                                                 <i class="fas fa-sort-numeric-up"></i>
+                                                                 <%} else if(sort == "id") {%>
+                                                                 <i class="fas fa-sort-numeric-down"></i>
+                                                                 <%} else { %>
+                                                                 <i class="fas fa-sort"></i>
+                                                                 <% } %>
+                                                            </a></th>
+                                                  <th>Phone Number</th>
+                                                  <th>Preferred Art Syle</th>
+                                             </tr>
+                                        </thead>
+                                        <tbody>
+                                             <% customers.forEach(function(customer) { %>
+                                             <tr>
+                                                  <td>
+                                                       <%= customer.CustomerID %>
+                                                  </td>
+                                                  <td class="phone-number">
+                                                       <%= customer.PhoneNumber %>
+                                                  </td>
+                                                  <td>
+                                                       <%= customer.PreferredArtStyle %>
+                                                  </td>
+                                             </tr>
+                                             <% }); %>
+                                        </tbody>
+                                   </table>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </div>
+</body>
+
+<% include partials/scripts %>
+
+</html>
