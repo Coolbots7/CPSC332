@@ -1,8 +1,10 @@
-/*
- * Topbar
- */
+.container {
+  padding: 0 15px;
+}
 
-.na
+.footer {
+  background-color: #f5f5f5;
+}
 
 /*
  * Sidebar
