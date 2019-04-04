@@ -1,7 +1,7 @@
 'use strict';
 var mysql = require('mysql');
 var connection = mysql.createConnection({
-     host: 'cpsc332-db.local',
+     host: 'cpsc332-db-svc',
      user: 'cpsc332webapp',
      password: 'w3bapppa$$w0rd',
      database: 'cpsc332_project4'
